@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="React,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="一、初始化阶段1、设置组件的默认属性123456static defaultProps = &amp;#123;    name: &amp;apos;sls&amp;apos;,    age:23&amp;#125;;//orCounter.defaltProps=&amp;#123;name:&amp;apos;sls&amp;apos;&amp;#125; 2、设置组件的初始化状态1234constructor(props) &amp;#123;    sup">
+<meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React 生命周期函数">
-<meta property="og:url" content="http://yoursite.com/2018/12/07/React-cycle/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/12/07/react/React-cycle/index.html">
 <meta property="og:site_name" content="zlyzzy&#39;s Blog">
 <meta property="og:description" content="一、初始化阶段1、设置组件的默认属性123456static defaultProps = &amp;#123;    name: &amp;apos;sls&amp;apos;,    age:23&amp;#125;;//orCounter.defaltProps=&amp;#123;name:&amp;apos;sls&amp;apos;&amp;#125; 2、设置组件的初始化状态1234constructor(props) &amp;#123;    sup">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-07T07:43:01.000Z">
+<meta property="og:updated_time" content="2018-12-10T07:36:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 生命周期函数">
 <meta name="twitter:description" content="一、初始化阶段1、设置组件的默认属性123456static defaultProps = &amp;#123;    name: &amp;apos;sls&amp;apos;,    age:23&amp;#125;;//orCounter.defaltProps=&amp;#123;name:&amp;apos;sls&amp;apos;&amp;#125; 2、设置组件的初始化状态1234constructor(props) &amp;#123;    sup">
@@ -119,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/07/React-cycle/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/07/react/React-cycle/">
 
 
 
@@ -272,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/07/React-cycle/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/07/react/React-cycle/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zlyzzy">
@@ -312,6 +313,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -322,6 +345,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  948 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4 分钟
+                </span>
+              
+            </div>
           
 
           
@@ -369,10 +423,45 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpeg" alt="zlyzzy 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpeg" alt="zlyzzy 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># React</a>
+          
+        </div>
       
 
       
@@ -383,7 +472,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/07/hello-world/" rel="next" title="Hello World">
+              <a href="/2018/12/07/nomal/hello-world/" rel="next" title="Hello World">
                 <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
@@ -392,6 +481,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/10/react/React-notes/" rel="prev" title="React 知识总结">
+                React 知识总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -461,20 +554,48 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zlyzzy" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -567,6 +688,8 @@
   
 
 
+  
+
 
 
 
@@ -605,6 +728,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -692,6 +820,11 @@
 
   
 
+  
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
 
 </body>
