@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="zlyzzy&#39;s Blog">
 <meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677//官网例子&amp;lt;el-input  placeholder=&amp;quot;输入关键字进行过滤&amp;quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-12T06:20:03.000Z">
+<meta property="og:updated_time" content="2018-12-12T06:29:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="element-ui tree 节点过滤加载对应子节点方法">
 <meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677//官网例子&amp;lt;el-input  placeholder=&amp;quot;输入关键字进行过滤&amp;quot;">
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  534 字
+                  518 字
                 </span>
               
 
@@ -399,7 +399,45 @@
 <li>而我们一般实际业务中，需要搜索到其下所有的子节点</li>
 <li>实现方法如下（修改filterNode方法即可，注意注意：filterNode方法有三个参数）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">filterNode(value,data,node) &#123;</span><br><span class="line">  //如果有三级</span><br><span class="line">  if (!value) return true;</span><br><span class="line">  let if_one = node.data.label.indexOf(value) !== -1</span><br><span class="line">  let if_two = node.parent &amp;&amp; node.parent.data &amp;&amp; node.parent.data.label &amp;&amp; (node.parent.data.label.indexOf(value) !== -1)</span><br><span class="line">  let if_three = node.parent &amp;&amp; node.parent.parent &amp;&amp; node.parent.parent.data &amp;&amp; node.parent.parent.data.label &amp;&amp; (node.parent.parent.data.label.indexOf(value) !== -1)</span><br><span class="line">  let result_one = false</span><br><span class="line">  let result_two = false</span><br><span class="line">  let result_three = false</span><br><span class="line">  if(node.level === 1) &#123;</span><br><span class="line">    result_one = if_one</span><br><span class="line">  &#125;else if(node.level === 2) &#123;</span><br><span class="line">    result_two = if_one || if_two</span><br><span class="line">  &#125;else if(node.level === 3) &#123;</span><br><span class="line">    result_three = if_one || if_two || if_three</span><br><span class="line">  &#125;</span><br><span class="line">  return result_one || result_two || result_three</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//优化之后的代码 不管有几级都可以适用</span><br><span class="line">filterNode(value,data,node) &#123;</span><br><span class="line">  let level = node.level;</span><br><span class="line">  let _array = [];</span><br><span class="line">  this.getReturnNode(node,_array,value);</span><br><span class="line">  let result = false;</span><br><span class="line">  _array.forEach((item)=&gt;&#123;</span><br><span class="line">    result = result || item;</span><br><span class="line">  &#125;);</span><br><span class="line">  return result;</span><br><span class="line">&#125;,</span><br><span class="line">getReturnNode(node,_array,value)&#123;</span><br><span class="line">  _array.push(node.data &amp;&amp;  node.data.label &amp;&amp; node.data.label.indexOf(value) !== -1);</span><br><span class="line">  if(node.parent)&#123;</span><br><span class="line">    this.getReturnNode(node.parent,_array,value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>filterNode(value,data,node) {
+  //如果有三级
+  if (!value) return true;
+  let if_one = node.data.label.indexOf(value) !== -1
+  let if_two = node.parent &amp;&amp; node.parent.data &amp;&amp; node.parent.data.label &amp;&amp; (node.parent.data.label.indexOf(value) !== -1)
+  let if_three = node.parent &amp;&amp; node.parent.parent &amp;&amp; node.parent.parent.data &amp;&amp; node.parent.parent.data.label &amp;&amp; (node.parent.parent.data.label.indexOf(value) !== -1)
+  let result_one = false
+  let result_two = false
+  let result_three = false
+  if(node.level === 1) {
+    result_one = if_one
+  }else if(node.level === 2) {
+    result_two = if_one || if_two
+  }else if(node.level === 3) {
+    result_three = if_one || if_two || if_three
+  }
+  return result_one || result_two || result_three
+}
+
+//优化之后的代码 不管有几级都可以适用
+filterNode(value,data,node) {
+  let level = node.level;
+  let _array = [];
+  this.getReturnNode(node,_array,value);
+  let result = false;
+  _array.forEach((item)=&gt;{
+    result = result || item;
+  });
+  return result;
+},
+getReturnNode(node,_array,value){
+  _array.push(node.data &amp;&amp;  node.data.label &amp;&amp; node.data.label.indexOf(value) !== -1);
+  if(node.parent){
+    this.getReturnNode(node.parent,_array,value);
+  }
+}
+
+
+</code></pre>
       
     </div>
     
