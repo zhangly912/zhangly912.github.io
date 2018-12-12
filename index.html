@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  534 字
+                  562 字
                 </span>
               
 
@@ -396,8 +396,7 @@
       
         
           
-          element-ui tree 节点过滤加载对应子节点方法
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677//官网例子&lt;el-input  placeholder=&quot;输入关键字进行过滤&quot;  v-model=&quot;filterText&quot;&gt;&lt;/el-input&gt;&lt;el-tree  class=&quot;filter-tree&quot;  :data=&quot;data2&quot;  :props=&quot;defaultProps&quot;  default-expand-all  :filter-node-method=&quot;filterNode&quot;  ref=&quot;tree2&quot;&gt;&lt;/el-tree&gt;&lt;script&g
+          element-ui tree 节点过滤加载对应子节点方法,官网例子，不会返回过滤节点的子节点，这也是总结这篇博客的原因
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -576,11 +575,7 @@
       
         
           
-          1. 状态更新可能是异步的123//correctlet i = 0this.setState(&#123;counter: i+1&#125;);
-React 可以将多个setState() 调用合并成一个调用来提高性能。因为 this.props 和 this.state 可能是异步更新的，你不应该依靠它们的值来计算下一个状态。
-例如，此代码可能无法更新计数器：
-12// Wrongthis.setState(&#123;counter: this.state.counter + this.props.increment&#125;);
-要修复它，请使用第二种形式的 setState() 来接受一个函数而不是一个对象。 该函数将接收先前的状态作为第一个参数，将此次更新被应用时的props做为第二个参数：1234567891011121314151617181920212223// Correctthis.setState((preState, props) =&gt; &#123;      return &#123; counter: prevState.counter + pr
+          1. 状态更新可能是异步的123//correctlet i = 0this.setState(&#123;counte
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -759,13 +754,7 @@ React 可以将多个setState() 调用合并成一个调用来提高性能。因
       
         
           
-          一、初始化阶段1、设置组件的默认属性123456static defaultProps = &#123;    name: &apos;sls&apos;,    age:23&#125;;//orCounter.defaltProps=&#123;name:&apos;sls&apos;&#125;
-2、设置组件的初始化状态1234constructor(props) &#123;    super(props);    this.state = &#123;number: 0&#125;&#125;
-3、componentWillMount()1组件即将被渲染到页面之前触发，此时可以进行开启定时器、向服务器发送请求等操作
-4、 render()1组件渲染
-5、componentDidMount()1组件已经被渲染到页面中后触发：此时页面中有了真正的DOM的元素，可以进行DOM相关的操作
-二、运行中阶段1、componentWillReceiveProps()1组件接收到属性时触发
-2、shouldComponentUpdate()1当组件接收到新属性，或者组件的状态发生改变时触发。
+          一、初始化阶段1、设置组件的默认属性123456static defaultProps = &#123;    name
           ...
           <!--noindex-->
           <div class="post-button text-center">
