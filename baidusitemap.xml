@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://zlyzzy.github.io/2018/12/12/vue/vue-element-ui/</loc>
+    <loc>https://zlyzzy.github.io/2018/12/12/vue/vue-element-ui/</loc>
     <lastmod>2018-12-12T06:51:58.000Z</lastmod>
   </url>  <url>
-    <loc>http://zlyzzy.github.io/2018/12/10/react/React-notes/</loc>
+    <loc>https://zlyzzy.github.io/2018/12/10/react/React-notes/</loc>
     <lastmod>2018-12-10T07:52:47.000Z</lastmod>
   </url>  <url>
-    <loc>http://zlyzzy.github.io/2018/12/07/react/React-cycle/</loc>
+    <loc>https://zlyzzy.github.io/2018/12/07/react/React-cycle/</loc>
     <lastmod>2018-12-10T07:36:23.000Z</lastmod>
   </url>  <url>
-    <loc>http://zlyzzy.github.io/2018/12/07/nomal/hello-world/</loc>
+    <loc>https://zlyzzy.github.io/2018/12/07/nomal/hello-world/</loc>
     <lastmod>2018-12-10T07:36:20.000Z</lastmod>
   </url>
 </urlset>
