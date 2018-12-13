@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="zlyzzy&#39;s Blog">
 <meta property="og:description" content="element-ui tree 节点过滤加载对应子节点方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-12T09:49:09.000Z">
+<meta property="og:updated_time" content="2018-12-13T02:05:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="element-ui tree 节点过滤加载对应子节点方法">
 <meta name="twitter:description" content="element-ui tree 节点过滤加载对应子节点方法">
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  562 字
+                  830 字
                 </span>
               
 
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -425,8 +425,11 @@
 
 //优化之后的代码 不管有几级都可以适用
 filterNode(value,data,node) {
+  if(!value){
+    return true;
+  }
   let level = node.level;
-  let _array = [];
+  let _array = [];//这里使用数组存储 只是为了存储值。
   this.getReturnNode(node,_array,value);
   let result = false;
   _array.forEach((item)=&gt;{
@@ -435,11 +438,53 @@ filterNode(value,data,node) {
   return result;
 },
 getReturnNode(node,_array,value){
-  _array.push(node.data &amp;&amp;  node.data.label &amp;&amp; node.data.label.indexOf(value) !== -1);
-  if(node.parent){
-    this.getReturnNode(node.parent,_array,value);
-  }
+ let isPass = node.data &amp;&amp;  node.data.ruleName &amp;&amp; node.data.ruleName.indexOf(value) !== -1;
+ isPass?_array.push(isPass):&apos;&apos;;
+ this.index++;
+ console.log(this.index)
+ if(!isPass &amp;&amp; node.level!=1 &amp;&amp; node.parent){
+  this.getReturnNode(node.parent,_array,value);
+ }
 }
+
+
+//如果不明白上面的写法 可以看下面详解的写法 
+
+
+ // 触发页面显示配置的筛选
+      filterNode(value, data, node) {
+        // 如果什么都没填就直接返回
+        if (!value) return true;
+        // 如果传入的data和node.data中的ruleCode相同说明是匹配到了
+        if (data.ruleName.indexOf(value) !== -1) {
+          return true;
+        }
+        // 否则要去判断它是不是选中节点的子节点
+        return this.checkBelongToChooseNode(value, data, node);
+      },
+      // 判断传入的节点是不是选中节点的子节点
+      checkBelongToChooseNode(value, data, node) {
+        const level = node.level;
+        // 如果传入的节点本身就是一级节点就不用校验了
+        if (level === 1) {
+          return false;
+        }
+        // 先取当前节点的父节点
+        let parentData = node.parent;
+        // 遍历当前节点的父节点
+        let index = 0;
+        while (index &lt; level - 1) {
+          // 如果匹配到直接返回
+          if (parentData.data.ruleName.indexOf(value) !== -1) {
+            return true;
+          }
+          // 否则的话再往上一层做匹配
+          parentData = parentData.parent;
+          index ++;
+        }
+        // 没匹配到返回false
+        return false;
+      },
 
 
 </code></pre>
